@@ -8,7 +8,7 @@ steps:
       - 'run'
       - 'deploy'
       - 'minha-aplicacao'
-      - '--image=gcr.io/$PROJECT_ID/minha-aplicacao-node'
+      - '--image=gcr.io/$PROJECT_ID/minha-aplicacao'
       - '--platform=managed'
       - '--region=us-central1'
       - '--allow-unauthenticated'
