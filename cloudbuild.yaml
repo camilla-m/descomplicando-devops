@@ -8,7 +8,7 @@ steps:
       - 'run'
       - 'deploy'
       - 'minha-aplicacao'
-      - '--image=gcr.io/linuxtips-392717/minha-aplicacao'
+      - '--image=gcr.io/linuxtips-392717/minha-aplicacao-node'
       - '--platform=managed'
       - '--region=us-central1'
       - '--allow-unauthenticated'
