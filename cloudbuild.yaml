@@ -1,14 +1,14 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/minha-aplicacao-node', '.']
+    args: ['build', '-t', 'gcr.io/linuxtips-392717/minha-aplicacao-node', '.']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/minha-aplicacao-node']
+    args: ['push', 'gcr.io/linuxtips-392717/minha-aplicacao-node']
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - 'run'
       - 'deploy'
       - 'minha-aplicacao'
-      - '--image=gcr.io/$PROJECT_ID/minha-aplicacao'
+      - '--image=gcr.io/linuxtips-392717/minha-aplicacao'
       - '--platform=managed'
       - '--region=us-central1'
       - '--allow-unauthenticated'
