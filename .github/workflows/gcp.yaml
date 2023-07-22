@@ -20,12 +20,14 @@ jobs:
         service_account_key: ${{ secrets.GCP_SA_KEY }}
         project_id: ${{ secrets.PROJECT_ID }}
 
+    - name: Configure Docker to use Artifact Registry
+      run: |
+        gcloud auth configure-docker eu.artifacts.${{ secrets.PROJECT_ID }}.appspot.com
+
     - name: Build and Push Docker Image
-      uses: google-github-actions/build-and-push-gke-container@v0
-      with:
-        image: eu.artifacts.${{ secrets.PROJECT_ID }}.appspot.com/linuxtips/my-node-app:${{ github.sha }}
-        gcp_project_id: ${{ secrets.PROJECT_ID }}
-        gcp_location: us-central1
+      run: |
+        docker build -t eu.artifacts.${{ secrets.PROJECT_ID }}.appspot.com/linuxtips/my-node-app:${{ github.sha }} .
+        docker push eu.artifacts.${{ secrets.PROJECT_ID }}.appspot.com/linuxtips/my-node-app:${{ github.sha }}
 
     - name: Deploy to Cloud Run
       run: |
