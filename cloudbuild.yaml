@@ -8,7 +8,7 @@ steps:
       - 'run'
       - 'deploy'
       - 'meu-teste-dois'
-      - '--image=gcr.io/linuxtips-392717/minha-aplicacao-node'
+      - '--image=gcr.io/linuxtips-392717/minha-aplicacao-node:latest'
       - '--platform=managed'
       - '--region=us-central1'
       - '--allow-unauthenticated'
