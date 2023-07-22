@@ -7,7 +7,7 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - 'meu-teste-dois'
+      - 'meu-teste-tres'
       - '--image=gcr.io/linuxtips-392717/minha-aplicacao-node:latest'
       - '--platform=managed'
       - '--region=us-central1'
