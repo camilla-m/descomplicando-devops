@@ -13,4 +13,5 @@ steps:
       - '--region=us-central1'
       - '--allow-unauthenticated'
 options:
-  logging: LEGACY
+  logging: CLOUD_LOGGING_ONLY
+  
