@@ -14,19 +14,18 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Set up Google Cloud SDK
-      uses: google-github-actions/setup-gcloud@main
+      uses: google-github-actions/setup-gcloud
       with:
         version: 'latest'
         service_account_key: ${{ secrets.GCP_SA_KEY }}
         project_id: ${{ secrets.PROJECT_ID }}
 
-    - name: Authenticate with Container Registry
-      run: gcloud auth configure-docker
-
     - name: Build and Push Docker Image
-      run: |
-        docker build -t gcr.io/${{ secrets.PROJECT_ID }}/my-node-app .
-        docker push gcr.io/${{ secrets.PROJECT_ID }}/my-node-app
+      uses: google-github-actions/build-and-push-gke-container@master
+      with:
+        image: eu.artifacts.${{ secrets.PROJECT_ID }}.appspot.com/linuxtips/my-node-app:${{ github.sha }}
+        gcp_project_id: ${{ secrets.PROJECT_ID }}
+        gcp_location: us-central1
 
     - name: Deploy to Cloud Run
       run: |
