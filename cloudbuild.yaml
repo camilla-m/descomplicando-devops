@@ -7,7 +7,7 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - 'minha-app'
+      - 'minha-appp'
       - '--image=gcr.io/linuxtips-392717/minha-aplicacao-node'
       - '--platform=managed'
       - '--region=us-central1'
