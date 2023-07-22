@@ -22,12 +22,12 @@ jobs:
 
     - name: Configure Docker to use Artifact Registry
       run: |
-        gcloud auth configure-docker eu.artifacts.${{ secrets.PROJECT_ID }}.appspot.com
+        gcloud auth configure-docker gcr.io/${{ secrets.PROJECT_ID }}/my-node-app:${{ github.sha }}
 
     - name: Build and Push Docker Image
       run: |
-        docker build -t eu.artifacts.${{ secrets.PROJECT_ID }}.appspot.com/linuxtips/my-node-app:${{ github.sha }} .
-        docker push eu.artifacts.${{ secrets.PROJECT_ID }}.appspot.com/linuxtips/my-node-app:${{ github.sha }}
+        docker build -t gcr.io/${{ secrets.PROJECT_ID }}/my-node-app:${{ github.sha }} .
+        docker push gcr.io/${{ secrets.PROJECT_ID }}/my-node-app:${{ github.sha }}
 
     - name: Deploy to Cloud Run
       run: |
