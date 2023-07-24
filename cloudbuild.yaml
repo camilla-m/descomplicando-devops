@@ -13,4 +13,4 @@ steps:
       - '--region=us-central1'
       - '--allow-unauthenticated'
 options:
-  logging: NONE
+  logging: CLOUD_LOGGING_ONLY
