@@ -9,7 +9,7 @@ const HOST = '0.0.0.0';
 // App
 const app = express();
 app.get('/', (req, res) => {
-  res.send('testando pipeline no kubernetes punk do devops');
+  res.send('testando pipeline no kubernetes punk do devops dois');
 });
 
 app.listen(PORT, HOST, () => {
