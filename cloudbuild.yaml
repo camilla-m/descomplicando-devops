@@ -5,5 +5,8 @@ steps:
   # Push the Docker image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'us-central1-docker.pkg.dev/linuxtips-392717/hello-repo/cicd-teste:1.0']
+  # Restart the deployment using kubectl
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: ['rollout', 'restart', 'deployment', 'helloworld-gke']
 options:
   logging: CLOUD_LOGGING_ONLY
