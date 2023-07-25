@@ -4,3 +4,6 @@ docker-compose.yaml
 cloudbuild.yaml
 .gitignore
 terraform/*
+_cloudbuild.yaml
+service.yaml
+deployment.yaml
