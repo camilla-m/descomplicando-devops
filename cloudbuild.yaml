@@ -1,10 +1,10 @@
 steps:
   # Build the Docker image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'us-central1-docker.pkg.dev/linuxtips-392717/github/cicd-teste:1.0', '.']
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/linuxtips-392717/hello-repo/cicd-teste:1.0', '.']
   # Push the Docker image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-central1-docker.pkg.dev/linuxtips-392717/github/cicd-teste:1.0']
+    args: ['push', 'us-central1-docker.pkg.dev/linuxtips-392717/hello-repo/cicd-teste:1.0']
   # Deploy to Cloud Run
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
