@@ -3,3 +3,4 @@ npm-debug.log
 docker-compose.yaml
 cloudbuild.yaml
 .gitignore
+terraform/*
