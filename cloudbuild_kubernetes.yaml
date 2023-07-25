@@ -5,15 +5,11 @@ steps:
   # Push the Docker image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/hello-repo/cicd-teste:1.0']
-  # Deploy to Cloud Run
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args:
-      - 'run'
-      - 'deploy'
-      - 'minha-aplicacao'
-      - '--image=us-central1-docker.pkg.dev/$PROJECT_ID/hello-repo/cicd-teste:1.0'
-      - '--platform=managed'
-      - '--region=us-central1'
-      - '--allow-unauthenticated'
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: ['rollout', 'restart', 'deployment', 'helloworld-gke']
+    env:
+      - CLOUDSDK_CONTAINER_CLUSTER=linuxtips
+      - CLOUDSDK_COMPUTE_ZONE=us-central1-a
+      - CLOUDSDK_COMPUTE_REGION=us-central1
 options:
   logging: CLOUD_LOGGING_ONLY
