@@ -3,3 +3,5 @@ resource "google_container_cluster" "my_autopilot_cluster" {
   location = "us-central1" # or your desired region
   enable_autopilot = true
 }
+
+### gcloud container clusters get-credentials linuxtips --location us-central1
