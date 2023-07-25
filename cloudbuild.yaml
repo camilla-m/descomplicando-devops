@@ -7,14 +7,6 @@ steps:
     args: ['push', 'us-central1-docker.pkg.dev/linuxtips-392717/hello-repo/cicd-teste:1.0']
   - name: 'gcr.io/cloud-builders/kubectl'
     args: ['container', 'clusters', 'get-credentials', 'linuxtips', '--location', 'us-central1']
-steps:
-  # Build the Docker image
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'us-central1-docker.pkg.dev/linuxtips-392717/hello-repo/cicd-teste:1.0', '.']
-  # Push the Docker image to Artifact Registry
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-central1-docker.pkg.dev/linuxtips-392717/hello-repo/cicd-teste:1.0']
-  # Set up kubectl and apply deployment (assuming you have the kubeconfig file in cloudbuild directory)
   - name: 'gcr.io/cloud-builders/gcloud'
     entrypoint: 'bash'
     args:
