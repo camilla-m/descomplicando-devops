@@ -11,7 +11,7 @@ steps:
       - 'run'
       - 'deploy'
       - 'minha-aplicacao'
-      - '--image=gcr.io/linuxtips-392717/cicd-teste:1.0'
+      - '--image=us-central1-docker.pkg.dev/linuxtips-392717/hello-repo/cicd-teste:1.0'
       - '--platform=managed'
       - '--region=us-central1'
       - '--allow-unauthenticated'
