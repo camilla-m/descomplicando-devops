@@ -25,7 +25,7 @@ steps:
         export CLOUDSDK_COMPUTE_ZONE=us-central1
         export CLOUDSDK_CONTAINER_CLUSTER=linuxtips
         # Authenticate kubectl with the cluster
-        gcloud container clusters get-credentials $CLOUDSDK_CONTAINER_CLUSTER --region=$CLOUDSDK_COMPUTE_REGION --zone=$CLOUDSDK_COMPUTE_ZONE
+        gcloud container clusters get-credentials linuxtips --region=us-central1 --zone=us-central1
   # Restart the deployment using kubectl
   - name: 'gcr.io/cloud-builders/kubectl'
     args: ['rollout', 'restart', 'deployment', 'your-deployment-name']
