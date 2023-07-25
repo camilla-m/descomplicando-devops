@@ -7,13 +7,11 @@ steps:
     args: ['push', 'us-central1-docker.pkg.dev/linuxtips-392717/hello-repo/cicd-teste:1.0']
   - name: 'gcr.io/cloud-builders/kubectl'
     args: ['container', 'clusters', 'get-credentials', 'linuxtips', '--location', 'us-central1']
-  - name: 'gcr.io/cloud-builders/gcloud'
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - |
- dRestart the deployment using kubectl
   - name: 'gcr.io/cloud-builders/kubectl'
-    args: ['rollout', 'restart', 'deployment', 'your-deployment-name']
+    args: ['set', 'image', 'deployment/helloworld-gke', 'hello-app=us-central1-docker.pkg.dev/linuxtips-392717/hello-repo/cicd-teste:1.0']
+    env:
+      - CLOUDSDK_CONTAINER_CLUSTER=linuxtips
+      - CLOUDSDK_COMPUTE_ZONE=us-central1
+      - CLOUDSDK_CORE_PROJECT=linuxtips-392717
 options:
   logging: CLOUD_LOGGING_ONLY
