@@ -12,13 +12,7 @@ steps:
     args:
       - '-c'
       - |
-        # Set environment variables for gcloud configuration
-        export CLOUDSDK_COMPUTE_REGION=us-central1
-        export CLOUDSDK_COMPUTE_ZONE=us-central1
-        export CLOUDSDK_CONTAINER_CLUSTER=linuxtips
-        # Authenticate kubectl with the cluster
-        gcloud container clusters get-credentials linuxtips --region=us-central1 --zone=us-central1
-  # Restart the deployment using kubectl
+ dRestart the deployment using kubectl
   - name: 'gcr.io/cloud-builders/kubectl'
     args: ['rollout', 'restart', 'deployment', 'your-deployment-name']
 options:
