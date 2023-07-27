@@ -1,0 +1,13 @@
+helm upgrade datadog \
+    --set datadog.apiKey=APIKEY \
+    --set datadog.appKey=APPKEY \
+    --set clusterAgent.enabled=true \
+    --set clusterAgent.metricsProvider.enabled=true \
+    --set providers.gke.autopilot=true \
+    --set datadog.logs.enabled=true \
+    --set datadog.apm.enabled=true \
+    --set datadog.kubeStateMetricsEnabled=false \
+    --set datadog.site=us5.datadoghq.com \
+    --set datadog.kubeStateMetricsCore.enabled=true \
+    --set agents.priorityClassName=high-priority \
+    datadog/datadog
