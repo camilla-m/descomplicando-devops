@@ -1,0 +1,12 @@
+global:
+  resolveTimeout: 5m
+
+alertmanager:
+  alertmanagerSpec:
+    storage:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: standard
+          resources:
+            requests:
+              storage: 1Gi
