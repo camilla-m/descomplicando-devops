@@ -3,7 +3,7 @@ kind: ClusterPodMonitoring
 metadata:
   name: cluster-monitoring
 spec:
-  podMetricsEndpoints:
-    - port: kubelet
-  podMetricsSelectors:
-    - namespaceSelector: {}
+  endpoints:
+    port: kubelet
+  selector:
+    app: hello
