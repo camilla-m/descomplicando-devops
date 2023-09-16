@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: prometheus
+  name: frontend
+spec:
+  template
+    containers:
+    - name: frontend
+      args:
+      - --query.credentials-file=/gmp/key.json
+...
+      volumeMounts:
+      - name: gmp-sa
+        mountPath: /gmp
+        readOnly: true
+...
+    volumes:
+    - name: gmp-sa
+      secret:
+        secretName: gmp-test-sa
+...
