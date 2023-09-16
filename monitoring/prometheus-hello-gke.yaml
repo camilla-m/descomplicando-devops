@@ -1,11 +1,9 @@
 apiVersion: monitoring.googleapis.com/v1
-kind: PodMonitoring
+kind: ClusterPodMonitoring
 metadata:
-  name: helloworld-gke
+  name: cluster-monitoring
 spec:
-  selector:
-    matchLabels:
-      app.kubernetes.io/name: helloworld-gke
-  endpoints:
-  - port: metrics
-    interval: 30s
+  podMetricsEndpoints:
+    - port: kubelet
+  podMetricsSelectors:
+    - namespaceSelector: {}
