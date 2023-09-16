@@ -1,9 +1,13 @@
 apiVersion: monitoring.googleapis.com/v1
 kind: ClusterPodMonitoring
 metadata:
-  name: cluster-monitoring
+  name: monitoring
 spec:
-  endpoints:
-    port: kubelet
   selector:
-    app: hello
+    matchLabels:
+      app: hello
+  namespaceSelector:
+    any: true
+  endpoints:
+  - port: kubelet
+    interval: 30s
