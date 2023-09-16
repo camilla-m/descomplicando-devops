@@ -3,3 +3,9 @@ resource "google_container_cluster" "my_autopilot_cluster" {
   location = "us-central1" # or your desired region
   enable_autopilot = true
 }
+
+resource "google_container_cluster" "my_autopilot_cluster_giropops" {
+  name     = "giropops"
+  location = "us-central1" # or your desired region
+  enable_autopilot = true
+}
