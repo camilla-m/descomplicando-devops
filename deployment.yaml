@@ -31,7 +31,7 @@ spec:
       - name: hello-app
         # Replace $LOCATION with your Artifact Registry location (e.g., us-west1).
         # Replace $GCLOUD_PROJECT with your project ID.
-        image: us-central1-docker.pkg.dev/$PROJECT_ID/hello-repo/cicd-teste:1.0
+        image: us-central1-docker.pkg.dev/$GCLOUD_PROJECT/hello-repo/cicd-teste:1.0
         # This app listens on port 8080 for web traffic by default.
         ports:
         - containerPort: 8080

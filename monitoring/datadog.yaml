@@ -1,12 +1,13 @@
-helm install datadog-giropops \
-    --set datadog.apiKey=<DATADOG_API_KEY> \
-    --set datadog.appKey=<DATADOG_APP_KEY> \
-    --set clusterAgent.enabled=true \
-    --set clusterAgent.metricsProvider.enabled=true \
-    --set providers.gke.autopilot=true \
-    --set datadog.logs.enabled=true \
-    --set datadog.apm.enabled=true \
-    --set datadog.kubeStateMetricsEnabled=false \
-    --set datadog.kubeStateMetricsCore.enabled=true \
-    datadog/datadog
- 
+kubectl create secret generic datadog-secret --from-literal api-key=apikey --from-literal app-key=appkey
+
+datadog:
+ apiKeyExistingSecret: datadog-secret
+ appKeyExistingSecret: datadog-secret
+ site: us5.datadoghq.com	
+
+helm repo add datadog https://helm.datadoghq.com
+helm repo update
+
+ helm install --generate-name -f datadog-values-query.yaml \
+ --set targetSystem=linux \
+ datadog/datadog
