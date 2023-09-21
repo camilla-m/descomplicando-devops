@@ -1,9 +1,15 @@
+criar secret:
+
 kubectl create secret generic datadog-secret --from-literal api-key=apikey --from-literal app-key=appkey
+
+criar datadog-values-query.yaml:
 
 datadog:
  apiKeyExistingSecret: datadog-secret
  appKeyExistingSecret: datadog-secret
  site: us5.datadoghq.com	
+
+rodar comandos:
 
 helm repo add datadog https://helm.datadoghq.com
 helm repo update
