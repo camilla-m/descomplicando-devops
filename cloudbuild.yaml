@@ -10,7 +10,7 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - 'minha-aplicacao'
+      - 'minha-aplicacao-linuxtips'
       - '--image=us-central1-docker.pkg.dev/sharp-imprint-406114/hello-repo/cicd-teste:1.0'
       - '--platform=managed'
       - '--region=us-central1'
